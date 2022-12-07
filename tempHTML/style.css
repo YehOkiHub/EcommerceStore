@@ -1,0 +1,109 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+}
+
+#nav-bar {
+    margin: 0 0;
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    height: 60px;
+    box-shadow: 0px 0px 20px #7f423d;
+    z-index: 999;
+    background-color: #fff;
+}
+#nav-bar * {
+    margin: 0 2rem;
+    font-size: 3.3rem;
+    text-decoration: none;
+    align-self:flex-end;
+    color: #6d1919;
+}
+
+#logo{
+    font-size: 1.7rem;
+}
+
+#shop {
+    margin: 0 15rem;
+    align-content: center;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
+
+.product-card {
+    height: 15rem;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    margin: -1px -1px;
+    border: 2px solid #EADAd0;
+    z-index: -999;
+    background-color: #fff;
+}
+
+.product-image {
+    border-radius: .5rem;
+    width: 10rem;
+    height: 10rem;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+.cart-card-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 1rem auto;
+}
+
+.cart-product-image {
+    border-radius: .5rem;
+    width: 8rem;
+    height: 8rem;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    margin: 0 5rem;
+}
+
+.cart-product-card {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1.5rem;
+    margin: -1px -1px;
+    border: 2px solid #EADAd0;
+    z-index: -999;
+    background-color: #fff;
+}
+
+#cart-header {
+    margin: 3rem 0 1rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+#cart-header h1 {
+    font-size: 2rem;
+}
