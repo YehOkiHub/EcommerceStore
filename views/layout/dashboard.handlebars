@@ -1,0 +1,47 @@
+<div class="section">
+    <div class="container">
+        {{#each post}}
+        <div class="panel">
+            <div class="panelHeader">
+                <h2>{{dataValues.title}}</h2>
+                <p>{{dataValues.date}}</p>
+            </div>
+
+            <div class="panelBody">
+                <p> Author: {{dataValues.user.dataValues.username}}</p>
+                <p>{{dataValues.content}}</p>
+
+                <button class="button button-grey" onclick="deletePost({{dataValues.id}})">Delete</button>
+                
+            </div>
+
+
+        </div>
+
+        {{/each}}
+
+
+    </div>
+
+</div>
+<div class="section">
+    <div class="container text-center">
+    <a href="/blog/add" class="button button-brown">+ New Post</a>
+    </div>
+</div>
+
+<script>
+   async function deletePost(postId){
+        
+
+    let response = await fetch("http://localhost:3001/api/blog/" + postId, {
+        method:"DELETE",
+        headers:{
+            "Content-Type":"application/json"
+        }
+    });
+
+    window.location.reload();
+
+    }
+</script>

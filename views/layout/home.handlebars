@@ -1,0 +1,24 @@
+<div class="section">
+    <div class="container">
+        {{#each post}}
+        <div class="panel">
+            <div class="panelHeader">
+                <h2>{{dataValues.title}}</h2>
+                <p>{{dataValues.date}}</p>
+            </div>
+
+            <div class="panelBody">
+                <p> Author: {{dataValues.user.dataValues.username}}</p>
+                <p>{{dataValues.content}}</p>
+                
+            </div>
+
+
+        </div>
+
+        {{/each}}
+
+
+    </div>
+
+</div>
