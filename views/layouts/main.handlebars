@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ecommerce store</title>
+    <link rel="stylesheet" href="/css/style.css">
+    
+</head>
+<body>
+    <header> 
+        <div id="nav-bar">
+            <a href="/">
+                <p id="logo">LO<br>GO</p>
+            </a>
+            <a href="/">Home</a>
+            {{#if session.logged_in}}
+            <a href="/cart">Cart</a>
+            {{/if}}
+            {{#if session.logged_in}}
+            <a href="/api/users/logout">Logout</a>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+            
+        </div>
+    </header>
+    <div class="time"> <img src="/wall.png">
+    <span id="nowtime"></span>
+    </div>
+
+       {{{body}}}
+    
+    
+</body>
+<script>
+  async function setTime(){
+    let response = await  fetch("http://localhost:3001/time", {
+      method: "GET",
+      headers: {"Content-Type": "application/json"}
+    })
+    let data = await response.json()
+    let time= data.time    
+    document.getElementById("nowtime").innerHTML = time;
+    
+
+  }
+
+  setInterval(setTime, 1000)
+  
+  </script>
+
+</html>

@@ -10,7 +10,7 @@ router.get("/", async (req, res) => {
         post: post
     }
 
-    res.render("home", data)
+    // res.render("home", data)
 
 })
 

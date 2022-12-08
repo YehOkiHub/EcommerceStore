@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { request } = require('express');
 const { Category, Product } = require('../../models');
+const auth = require("../../utils/auth")
 
 // The `/api/categories` endpoint
 
@@ -28,13 +29,13 @@ router.get('/:id', async (req, res) => {
 
 });
 
-router.post('/', (req, res) => {
+router.post('/', auth,  (req, res) => {
   // create a new category
   Category.create(req.body)
   res.json({msg: "category added"})
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', auth, (req, res) => {
   // update a category by its `id` value
   Category.update(req.body, {
     where: {
@@ -45,7 +46,7 @@ router.put('/:id', (req, res) => {
   res.json({msg:"category updated"})
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', auth,  (req, res) => {
   // delete a category by its `id` value
   Category.destroy({
     where: {
