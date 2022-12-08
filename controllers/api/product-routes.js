@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Product, Category, Tag, ProductTag } = require('../../models');
+const auth = require("../../utils/auth");
+const dayjs = require("dayjs")
 
 // The `/api/products` endpoint
 
@@ -29,7 +31,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // create new product
-router.post('/', (req, res) => {
+router.post('/', auth,  (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -62,7 +64,7 @@ router.post('/', (req, res) => {
 });
 
 // update product
-router.put('/:id', (req, res) => {
+router.put('/:id', auth, (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -103,7 +105,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {  
+router.delete('/:id', auth, (req, res) => {  
   ProductTag.destroy({
     where:{
       product_id: req.params.id
@@ -117,5 +119,26 @@ router.delete('/:id', (req, res) => {
   })
   res.json({msg:"Product deleted"})
 });
+
+router.get('/addtocart/:id', async (req, res) => {
+  console.log(req.session)
+  if(req.session == undefined || req.session == null || req.session.logged_in == undefined || req.session.logged_in == false){
+    res.json({message: "Please Create an account to add product to cart"})
+  }else{
+    let product_id = req.params.id
+    if(req.session.cart == undefined) {
+      req.session.cart = []
+    }
+    req.session.cart.push({
+      product_id: product_id,
+      date: dayjs()
+    })
+    res.json({message: "Product added to cart"})
+  }
+ 
+
+});
+
+
 
 module.exports = router;

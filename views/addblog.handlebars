@@ -1,0 +1,55 @@
+<div class="section"> 
+    <div class="container">
+      <div class="panel">
+        <div class="panelHeader"><h2>Create New Post</h2></div>
+        <div class="panelBody">
+
+            <form id="form" class="form1">
+                <input type="hidden" id="userId" value="{{session.user_id}}">
+            <input type="text" placeholder="title" id="title">
+            <textarea placeholder="Content" id="content"></textarea>   
+            <button class="button button-grey" type="submit">Submit</button>
+            </form>
+
+        </div>
+        
+    
+      </div>    
+    </div>
+
+
+</div>
+<script> 
+    async function savePost() {
+        let title = document.getElementById("title").value
+        let content = document.getElementById("content").value
+        let id = document.getElementById("userId").value
+
+        let date = new Date();
+        date = date.toLocaleString();
+
+
+
+     
+        let response = await fetch("http://localhost:3001/api/blog", {
+            method: "POST",
+            body: JSON.stringify({
+                title: title,
+                content: content,
+                date:date,
+                user_id:id
+            }),headers: {
+                "Content-Type": "application/json"
+            }
+
+        })
+
+         let data = await response.json()
+         alert(data.message)    
+    }
+let form = document.getElementById("form")
+form.addEventListener("submit", function(){
+    event.preventDefault()
+    savePost();
+})
+</script>
