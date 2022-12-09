@@ -3,7 +3,7 @@
             {{#each products}}
             <div class="product-card">
                 <div class="image-container">
-                    <img class="product-image" id="placeholder-image" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1699&q=80">
+                    <img class="product-image" id="placeholder-image" src={{dataValues.img}}>
                 </div>
                 <h3 class="product-name">{{dataValues.product_name}}</h3>
                 <h3 class="product-price">{{dataValues.price}}</h3>
