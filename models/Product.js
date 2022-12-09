@@ -34,7 +34,10 @@ Product.init(
         model: "category",
         key: "id"
       }
-    }
+    },
+    img: {
+      type: DataTypes.CHAR,
+    },
 
     
   },
