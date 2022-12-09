@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Product, Category, Tag, ProductTag } = require('../../models');
+const { Product, Category} = require('../../models');
 const auth = require("../../utils/auth");
 const dayjs = require("dayjs")
 
