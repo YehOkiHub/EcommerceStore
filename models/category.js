@@ -1,9 +1,11 @@
-const { Model, DataTypes, INTEGER } = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
+// import our database connection from config.js
+const sequelize = require('../config/connection');
 
-const sequelize = require('../config/connection.js');
 
 class Category extends Model {}
 
+// set up fields and rules for Product model
 Category.init(
   {
     // define columns
@@ -11,13 +13,14 @@ Category.init(
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
-
     },
     category_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      
 
 
     }
+    
   },
   {
     sequelize,
