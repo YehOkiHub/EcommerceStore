@@ -70,14 +70,7 @@ router.get("/logout", async (req, res) => {
   // }
   // ]
   
-  const cartData = req.session.cart.map((item) => {
-    return {
-      product_id: item.product_id,
-      user_id: req.session.user_id
-    }}) 
-    if(cartData.length){
-      await Cart.bulkCreate(cartData);  
-    }
+
     
     await req.session.destroy(() => {
 
