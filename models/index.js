@@ -24,6 +24,7 @@ Product.hasOne(Category, {
 
 })
 
+
 Product.hasOne(Cart)
 
 Cart.belongsTo(Product)
