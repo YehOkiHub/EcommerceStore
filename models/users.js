@@ -28,6 +28,16 @@ User.init(
         
       },
     },
+    cart_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "cart",
+        key: "id"
+      }
+
+
+
+    }
   },
   {
     hooks: {
