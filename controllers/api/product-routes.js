@@ -1,37 +1,34 @@
-const router = require('express').Router();
-const { Product, Category} = require('../../models');
+const router = require("express").Router();
+const { Product, Category, Cart } = require("../../models");
 const auth = require("../../utils/auth");
-const dayjs = require("dayjs")
+const dayjs = require("dayjs");
+const cartData = require("../../seeds/cartdata");
 
 // The `/api/products` endpoint
 
 // get all products
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
-  let products = await Product.findAll({include:[Category, Tag]});
-  res.json(products)
+  let products = await Product.findAll({ include: [Category, Tag] });
+  res.json(products);
 });
 
 // get one product
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
-  let products = await Product.findOne(
-    {
-      include:[Category, Tag],
-      where: {
-        id: req.params.id
-      }
-    
-    }
-    );
-  res.json(products)
-
+  let products = await Product.findOne({
+    include: [Category, Tag],
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.json(products);
 });
 
 // create new product
-router.post('/', auth,  (req, res) => {
+router.post("/", auth, (req, res) => {
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -40,7 +37,7 @@ router.post('/', auth,  (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  
+
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -64,7 +61,7 @@ router.post('/', auth,  (req, res) => {
 });
 
 // update product
-router.put('/:id', auth, (req, res) => {
+router.put("/:id", auth, (req, res) => {
   // update product data
   Product.update(req.body, {
     where: {
@@ -105,40 +102,105 @@ router.put('/:id', auth, (req, res) => {
     });
 });
 
-router.delete('/:id', auth, (req, res) => {  
+router.delete("/:id", auth, (req, res) => {
   ProductTag.destroy({
-    where:{
-      product_id: req.params.id
-    }
-  })
+    where: {
+      product_id: req.params.id,
+    },
+  });
 
   Product.destroy({
     where: {
-      id: req.params.id
-    }
-  })
-  res.json({msg:"Product deleted"})
+      id: req.params.id,
+    },
+  });
+  res.json({ msg: "Product deleted" });
 });
 
-router.get('/addtocart/:id', async (req, res) => {
-  console.log(req.session)
-  if(req.session == undefined || req.session == null || req.session.logged_in == undefined || req.session.logged_in == false){
-    res.json({message: "Please log in to add product to cart"})
-  }else{
-    let product_id = req.params.id
-    if(req.session.cart == undefined) {
-      req.session.cart = []
+router.get("/addtocart/:id", async (req, res) => {
+  console.log(req.session);
+  if (
+    req.session == undefined ||
+    req.session == null ||
+    req.session.logged_in == undefined ||
+    req.session.logged_in == false
+  ) {
+    res.json({ message: "Please Create an account to add product to cart" });
+  } else {
+    let product_id = req.params.id;
+    let oldProduct = await Cart.findOne({
+      where: {
+        product_id: product_id,
+        user_id: req.session.user_id,
+      },
+    });
+    if (oldProduct == null || oldProduct == undefined) {
+      Cart.create({
+        product_id: product_id,
+        user_id: req.session.user_id,
+        amount: 1,
+      });
+    } else {
+      let newAmount = oldProduct.dataValues.amount;
+      newAmount++;
+      Cart.update(
+        {
+          amount: newAmount,
+        },
+        {
+          where: {
+            product_id: product_id,
+            user_id: req.session.user_id,
+          },
+        }
+      );
     }
-    req.session.cart.push({
-      product_id: product_id,
-      date: dayjs()
-    })
-    res.json({message: "Product added to cart"})
+
+    res.json({ message: "Product added to cart" });
   }
- 
-
 });
 
+router.get("/removecart/:id", async (req, res) => {
+  console.log(req.session);
+  if (
+    req.session == undefined ||
+    req.session == null ||
+    req.session.logged_in == undefined ||
+    req.session.logged_in == false
+  ) {
+    res.json({ message: "Please Create an account to add product to cart" });
+  } else {
+    let product_id = req.params.id;
+    let oldProduct = await Cart.findOne({
+      where: {
+        product_id: product_id,
+        user_id: req.session.user_id,
+      },
+    });
+    let newAmount = oldProduct.dataValues.amount;
+    newAmount--;
+    if (newAmount == 0) {
+      Cart.destroy({
+        where: {
+          product_id: product_id,
+          user_id: req.session.user_id,
+        },
+      });
+    }
+    Cart.update(
+      {
+        amount: newAmount,
+      },
+      {
+        where: {
+          product_id: product_id,
+          user_id: req.session.user_id,
+        },
+      }
+    );
 
+    res.json({ message: "Product added to cart" });
+  }
+});
 
 module.exports = router;

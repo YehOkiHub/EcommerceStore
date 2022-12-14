@@ -27,7 +27,7 @@ User.init(
       validate: {
         
       },
-    },
+    }
   },
   {
     hooks: {
