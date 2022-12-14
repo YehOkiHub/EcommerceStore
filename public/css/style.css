@@ -1,13 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
 
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family:'Roboto', sans-serif;
     font-size: 16px;
+    font-weight: 100;
+    scroll-behavior: smooth;
 }
 
 #nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
     margin: 0 0;
     width: 100vw;
     display: flex;
@@ -15,15 +22,15 @@
     align-items: center;
     justify-content: center;
     height: 100px;
-    box-shadow: 0px 0px 20px #7f423d;
-    z-index: 999;
+    box-shadow: 0px 0px 20px #7d6859;
+    z-index: 2;
     background-color: #fff;
 }
 #nav-bar * {
     margin: 0 2rem;
     font-size: 3.3rem;
     text-decoration: none;    
-    color: #6d1919;
+    color: #7d6859;
 }
 
 #logo{
@@ -50,8 +57,9 @@
     align-items: center;
     padding: 1.5rem;
     margin: -1px -1px;
-    border: 2px solid #EADAd0;
+    border: 2px solid #c3bab0;
     background-color: #fff;
+    z-index: 1;
 }
 
 .product-image {
@@ -91,6 +99,12 @@
     border: 2px solid #EADAd0;
     z-index: -999;
     background-color: #fff;
+    justify-content: space-between;
+}
+
+.product-price {
+    flex-grow: 2;
+    justify-content: end;
 }
 
 #cart-header {
@@ -156,6 +170,7 @@
     padding:15px;
     display: flex;
     justify-content: space-between;
+    margin-top: 2.8rem;
 
 
 }
@@ -219,16 +234,85 @@ margin-bottom: 30px;
     top: 50%;
     transform: translate(-50%, -50%);
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 100;
     text-align: center;
-
-
+    z-index: 999;
 }
 
 .time {
 
-    position: absolute;
+    position: fixed;
     right: 100px;
     top: 5px;
+    z-index: 999;
     
+}
+
+.fa-house {
+    color:black
+}
+
+#landing-hero {
+    height: 100vh;
+    width: 100vw;
+
+}
+
+#landing-hero img {
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+}
+
+#landing-hero::after {
+    content: "Hand-picked \A for the modern man";
+    white-space: pre-wrap;
+    color: #7d6859;
+    position: relative;
+    top: -20%;
+    left: 10%;
+    z-index: 1;
+    font-size: 3rem;
+}
+
+.overlay {
+position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: linear-gradient(rgba(255, 255, 255, .4), rgb(255, 255, 255, 1) 99%);
+  z-index: 0;
+}
+
+#shop-button {
+    position: absolute;
+    width: min-content;
+    background-color: none;
+    top: 7rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#landing-hero a {
+    font-size: 2rem;
+    font-weight:400;
+    text-decoration: none;
+    border-style: solid;
+    border-width: .22rem;
+    border-radius: .2rem;
+    color: #7d6859;
+}
+
+#shop-button div {
+    font-weight: 500;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2.5rem;
+    color: #7d6859;
+    transform: rotate(180deg) translateY(1.5rem);
 }

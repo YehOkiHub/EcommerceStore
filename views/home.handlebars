@@ -1,3 +1,11 @@
+<div id="landing-hero">
+    <div class="overlay"></div>
+    <img src="https://images.pexels.com/photos/1034065/pexels-photo-1034065.jpeg">
+    <div id="shop-button">
+        <a href="#shop">SHOP</a>
+        <div id="down arrow">^</div>
+    </div>
+</div>
 <div id="shop">
         <div class="card-container">
             {{#each products}}
@@ -6,7 +14,7 @@
                     <img class="product-image" id="placeholder-image" src={{dataValues.img}}>
                 </div>
                 <h3 class="product-name">{{dataValues.product_name}}</h3>
-                <h3 class="product-price">{{dataValues.price}}</h3>
+                <h3 class="product-price">${{dataValues.price}}</h3>
                 <button class="button" onclick="AddtoCart({{dataValues.id}})" type="button">Add to cart</button>
 
             </div>

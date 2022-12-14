@@ -123,7 +123,7 @@ router.delete('/:id', auth, (req, res) => {
 router.get('/addtocart/:id', async (req, res) => {
   console.log(req.session)
   if(req.session == undefined || req.session == null || req.session.logged_in == undefined || req.session.logged_in == false){
-    res.json({message: "Please Create an account to add product to cart"})
+    res.json({message: "Please log in to add product to cart"})
   }else{
     let product_id = req.params.id
     if(req.session.cart == undefined) {

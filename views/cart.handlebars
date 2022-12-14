@@ -1,12 +1,12 @@
 <div id="shop">
-        <div class="card-container">
+        <div class="cart-card-container">
             {{#each products}}
-            <div class="product-card">
+            <div class="cart-product-card">
                 <div class="image-container">
-                    <img class="product-image" id="placeholder-image" src={{dataValues.img}}>
+                    <img class="cart-product-image" id="placeholder-image" src={{dataValues.img}}>
                 </div>
                 <h3 class="product-name">{{dataValues.product_name}}</h3>
-                <h3 class="product-price">{{dataValues.price}}</h3>
+                <h3 class="product-price">${{dataValues.price}}</h3>
                 <button id="button" class="button button-grey" onclick="deletePost({{dataValues.id}})">Delete</button>         
 
             </div>
