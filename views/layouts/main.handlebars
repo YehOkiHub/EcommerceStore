@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ecommerce store</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/7a68f3df4f.js" crossorigin="anonymous"></script>
     
 </head>
 <body>
@@ -14,9 +15,9 @@
             <a href="/">
                 <p id="logo">LO<br>GO</p>
             </a>
-            <a href="/">Home</a>
+            <a href="/"><i class="fa-solid fa-house"></i></a>
             {{#if session.logged_in}}
-            <a href="/cart">Cart</a>
+            <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
             {{/if}}
             {{#if session.logged_in}}
             <a href="/api/users/logout">Logout</a>
@@ -26,8 +27,9 @@
             
         </div>
     </header>
-    <div class="time"> <img src="/wall.png">
-    <span id="nowtime"></span>
+    <div class="time"> 
+      <img src="/wall.png">
+      <span id="nowtime"></span>
     </div>
 
        {{{body}}}
