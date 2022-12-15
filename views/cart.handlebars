@@ -17,7 +17,7 @@
         
     </div>
 
-    <script>
+     <script>
          async function AddtoCart(product_id){
             console.log(product_id)
             let response = await fetch("http://localhost:3001/api/products/addtocart/"+product_id, {
@@ -49,3 +49,61 @@
  
 
     </script>
+
+
+
+
+
+
+{{!-- 
+    <div id="shop">
+        <div class="card-container">
+            {{#each products}}
+            <div class="product-card">
+                <div class="image-container">
+                    <img class="product-image" id="placeholder-image" src={{dataValues.img}}>
+                </div>
+                <h3 class="product-name">{{dataValues.product_name}}</h3>
+                <h3 class="product-price">{{dataValues.price}}</h3>
+                <h3 class="quantity">Quantity: {{dataValues.cart.dataValues.amount}}</h3>
+                <button id="button" class="button button-grey" onclick="removeItem({{dataValues.id}})">Delete</button>         
+
+            </div>
+           {{/each}}
+        </div>
+
+        
+    </div>
+
+    <script>
+         async function AddtoCart(product_id){
+            console.log(product_id)
+            let response = await fetch("http://localhost:3001/api/products/addtocart/"+product_id, {
+                method: "GET",
+                headers: {
+                    "Content-Type" : "application/json"
+                }
+            })
+            let data = await response.json()
+            alert(data.message)
+
+
+         }
+         async function  removeItem(product_id) {
+            console.log(product_id)            
+            
+            let response = await fetch("http://localhost:3001/api/products/removecart/"+product_id, {
+                method: "GET",
+                headers: {
+                    "Content-Type" : "application/json"
+                }
+            })
+            let data = await response.json()
+            window.location.reload();
+
+
+
+         }
+ 
+
+    </script> --}}
