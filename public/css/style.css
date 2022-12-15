@@ -362,12 +362,23 @@ position: absolute;
     top: 1.8rem;
 }
 
-.loginout {
+#login {
+    position: fixed;
+    right: 8rem;
+    top: 1.5rem;
+}
+
+#logout {
     position: fixed;
     right: 8rem;
     top: 1.5rem;
 }
 
 .fa-house {
-position: center;
-};
+    position: absolute;
+    margin: 0px;
+    top: 1.3rem;
+    left: -2rem;
+    width: 100vw;
+    text-align: center;
+}
