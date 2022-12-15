@@ -135,11 +135,13 @@ router.get("/addtocart/:id", async (req, res) => {
       },
     });
     if (oldProduct == null || oldProduct == undefined) {
+      
       Cart.create({
         product_id: product_id,
         user_id: req.session.user_id,
         amount: 1,
       });
+      
     } else {
       let newAmount = oldProduct.dataValues.amount;
       newAmount++;
@@ -154,6 +156,7 @@ router.get("/addtocart/:id", async (req, res) => {
           },
         }
       );
+      
     }
 
     res.json({ message: "Product added to cart" });
