@@ -142,7 +142,7 @@
     text-decoration: none;
     border: none;
     outline: none;
-
+    
 
 
 }
@@ -322,4 +322,9 @@ position: absolute;
     font-size: 2.5rem;
     color: #7d6859;
     transform: rotate(180deg) translateY(1.5rem);
+}
+
+.paddingtop {
+
+    padding-top: 175px;
 }

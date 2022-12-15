@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const {Product, Category, Cart} = require("../models/index")
 const auth = require('../utils/auth');
-const dayjs = require('dayjs')
+const dayjs = require('dayjs');
+const session = require('express-session');
 
 router.get("/", async (req, res) =>{
 
@@ -56,22 +57,38 @@ router.get("/cart", auth, async (req, res) => {
     cartData.forEach(function(obj){
     if(obj.dataValues.product_id != undefined){
         product_ids.push(parseInt(obj.dataValues.product_id))        
+        
     }
     })   
-    console.log(product_ids)
+   
 
     
     let products = await Product.findAll({
-        include: [Category, Cart],
+        include: Cart,
         where: {
-            id: product_ids
+            id: product_ids,
+           
+
         },
-        group: ["product_id"]
+  
     })
+
+let newProducts = []
+products.forEach(
+   
+    (product) => {
+        if(product.dataValues.cart.dataValues.user_id == req.session.user_id){
+            newProducts.push(product)
+        }
+
+
+    }
+)
+   
 
     let data = {
         session: req.session,
-        products: products
+        products: newProducts
          }
     res.render("cart", data)
     
