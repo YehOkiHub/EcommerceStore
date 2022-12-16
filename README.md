@@ -17,8 +17,8 @@
 
 # Links
 -----------------------------------------------------------------------
-- [Deployed Website]()
-- [Repository]()
+- [Deployed Website](https://lit-scrubland-39844.herokuapp.com)
+- [Repository](https://github.com/YehOkiHub/EcommerceStore)
 
 
 # Screenshot sample
