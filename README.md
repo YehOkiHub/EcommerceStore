@@ -31,7 +31,7 @@ An eCommerce website with backend technologies that will allow clients to add an
 - [](https://)
 - [](https://)
 
-Collaborators:
+# Collaborators:
 ### [Micky Adera] (https://github.com/Micky-Ad)
 ### [Brian Collins] ( https://github.com/briancollins02)
 
