@@ -3,7 +3,12 @@
 
 # Features for the Project:
 -----------------------------------------------------------------------
-- The website displays users visiting the home page with items to select for their   purchase. When the user wants to buy an item, it prompts the user to log in or register. Once the user selects a watch and clicks on the “Cart”, it prompts the user to review their selection in the cart. Users will have the chance to delete items from the cart.  When the user logs out and logs back in the data in the cart is saved allowing the user to continue from where they left off. In addition, users will have the option to add the quantity of items that they want to purchase.  
+- The website displays users visiting the home page with items to select for their purchase.
+- When the user wants to buy an item, it prompts the user to log in or register page. 
+- Once the user logs in and selects a watch, they can click on the “Cart”, which prompts the user to review their selection in the cart. 
+- Users will have the chance to delete items from the cart.  When the user logs out and logs back in the data in the cart is saved allowing the user to continue from where they left off. 
+- In addition, users will have the option to add the number of items that they want to purchase. 
+ 
   
 # Built with
 -----------------------------------------------------------------------
