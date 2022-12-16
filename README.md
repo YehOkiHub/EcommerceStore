@@ -21,7 +21,7 @@
 - [Repository]()
 
 
-# Screenshot saple
+# Screenshot sample
 -----------------------------------------------------------------------
  ![Web site screenshot](./public/assets/Images/logedin_screenshot.PNG)
 
