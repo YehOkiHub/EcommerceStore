@@ -20,7 +20,7 @@
 - [Deployed Website]()
 - [Repository]()
 
- ![Web site screenshot]()
+ ![Web site screenshot](./public/assets/Images/logedin_screenshot.PNG)
 
 # Usage:
 -----------------------------------------------------------------------
