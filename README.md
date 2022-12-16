@@ -20,6 +20,9 @@
 - [Deployed Website]()
 - [Repository]()
 
+
+# Screenshot saple
+-----------------------------------------------------------------------
  ![Web site screenshot](./public/assets/Images/logedin_screenshot.PNG)
 
 # Usage:
