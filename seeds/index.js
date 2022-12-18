@@ -7,7 +7,7 @@ const cartData = require("./cartdata");
 
 const sequelize = require("../config/connection");
 // const User = require('../models/users');
-const { locale } = require("dayjs");
+// const { local } = require("dayjs");
 
 const seedAll = async () => {
   await sequelize.sync({ force: true });
