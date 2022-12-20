@@ -13,16 +13,20 @@
     <header> 
         <div id="nav-bar">
             <a href="/">
-                <p id="logo">LO<br>GO</p>
+              <div id="box">
+                <div id="logo">
+                    W
+                </div>
+              </div>
             </a>
             <a href="/"><i class="fa-solid fa-house"></i></a>
             {{#if session.logged_in}}
             <a href="/cart"><i class="fa-solid fa-cart-shopping"></i></a>
             {{/if}}
             {{#if session.logged_in}}
-            <a href="/api/users/logout">Logout</a>
+            <a id="login" href="/api/users/logout">Logout</a>
             {{else}}
-            <a href="/login">Login</a>
+            <a id="logout" href="/login">Login</a>
             {{/if}}
             
         </div>

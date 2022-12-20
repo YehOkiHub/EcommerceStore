@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 // get one product
 router.get("/:id", async (req, res) => {
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+
   let products = await Product.findOne({
     include: [Category, Tag],
     where: {
@@ -29,15 +29,6 @@ router.get("/:id", async (req, res) => {
 
 // create new product
 router.post("/", auth, (req, res) => {
-  /* req.body should look like this...
-    {
-      product_name: "Basketball",
-      price: 200.00,
-      stock: 3,
-      tagIds: [1, 2, 3, 4]
-    }
-  */
-
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
@@ -135,13 +126,11 @@ router.get("/addtocart/:id", async (req, res) => {
       },
     });
     if (oldProduct == null || oldProduct == undefined) {
-      
       Cart.create({
         product_id: product_id,
         user_id: req.session.user_id,
         amount: 1,
       });
-      
     } else {
       let newAmount = oldProduct.dataValues.amount;
       newAmount++;
@@ -156,7 +145,6 @@ router.get("/addtocart/:id", async (req, res) => {
           },
         }
       );
-      
     }
 
     res.json({ message: "Product added to cart" });
