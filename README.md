@@ -22,7 +22,7 @@
 
 # Links
 -----------------------------------------------------------------------
-- [Deployed Website](https://lit-scrubland-39844.herokuapp.com)
+- [Deployed Website](https://rocky-everglades-44813.herokuapp.com/)
 - [Repository](https://github.com/YehOkiHub/EcommerceStore)
 
 
