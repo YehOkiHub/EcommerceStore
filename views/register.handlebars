@@ -24,7 +24,7 @@
     async function register() {
         let username = document.getElementById("username").value
         let password = document.getElementById("password").value
-        let response = await fetch("http://localhost:3001/api/users", {
+        let response = await fetch("https://rocky-everglades-44813.herokuapp.com/api/users", {
             method: "POST",
             body: JSON.stringify({
                 username: username,
