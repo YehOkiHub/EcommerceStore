@@ -27,7 +27,7 @@
     <script>
          async function AddtoCart(product_id){
             console.log(product_id)
-            let response = await fetch("https://rocky-everglades-44813.herokuapp.com//api/products/addtocart/"+product_id, {
+            let response = await fetch("https://rocky-everglades-44813.herokuapp.com/api/products/addtocart/"+product_id, {
                 method: "GET",
                 headers: {
                     "Content-Type" : "application/json"
