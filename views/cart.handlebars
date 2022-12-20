@@ -32,7 +32,7 @@
          async function  removeItem(product_id) {
             console.log(product_id)            
             
-            let response = await fetch("http://localhost:3001/api/products/removecart/"+product_id, {
+            let response = await fetch("https://rocky-everglades-44813.herokuapp.com/api/products/removecart/"+product_id, {
                 method: "GET",
                 headers: {
                     "Content-Type" : "application/json"
