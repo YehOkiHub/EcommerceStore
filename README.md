@@ -34,12 +34,8 @@
 -----------------------------------------------------------------------
 An eCommerce website with backend technologies that will allow clients to add and customize their databases.
 
-# Place Holder:
------------------------------------------------------------------------
-- [](https://)
-- [](https://)
-
 # Collaborators:
+-----------------------------------------------------------------------
 ### [Micky Adera] (https://github.com/Micky-Ad)
 ### [Brian Collins] ( https://github.com/briancollins02)
 
