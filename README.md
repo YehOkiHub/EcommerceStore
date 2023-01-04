@@ -39,3 +39,8 @@ An eCommerce website with backend technologies that will allow clients to add an
 ### [Micky Adera] (https://github.com/Micky-Ad)
 ### [Brian Collins] ( https://github.com/briancollins02)
 
+# License:
+-----------------------------------------------------------------------
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
